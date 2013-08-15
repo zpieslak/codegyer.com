@@ -1,0 +1,432 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass";
+@import "compass/reset";
+@import "compass/css3/pie";
+
+/* main configuration */
+$base-font-size: 13px;
+$base-line-height: 21px;
+$base-color: #696969;
+
+@include establish-baseline;
+@include font-face("Opensans Semibold", font-files("/assets/opensans-semibold-webfont.woff", "/assets/opensans-semibold-webfont.ttf"), "/assets/opensans-semibold-webfont.eot");
+
+/* ie configuration */
+$pie-behavior: url("/PIE.htc");
+$pie-base-class: pie-element;
+.pie-element {
+  @include pie-element;
+}
+
+/* main elements */
+body {
+  background: #000;
+  color: $base-color;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+a {
+  color: #60b000;
+  outline: none;
+}
+h1 {
+  @extend .text-header;
+  @extend .text-border;
+  @include adjust-font-size-to(40px);
+}
+h2 {
+  @extend .text-header;
+  @include adjust-font-size-to(20px);
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+button {
+  background: #fff;
+  border: none;
+  font: 1em 'Trebuchet MS', sans-serif;
+}
+button {
+  overflow: visible;
+  white-space: nowrap;
+  -webkit-border-fit: lines;
+  @include inline-block;
+  padding: 5px 15px;
+  margin: 0;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000;
+}
+
+/* main classes */
+.wrapper {
+  width: 940px;
+  margin: 0 auto;
+}
+.font-opensans-semibold {
+  font-family: "Opensans Semibold";
+  letter-spacing: -1px;
+}
+.link-decoration {
+  &:hover {
+    text-decoration: none;
+  }
+}
+.link-no-decoration {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.right {
+  float: right;
+}
+.text-header {
+  color: #000;
+  @extend .font-opensans-semibold;
+}
+.text-border {
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.legend {
+  padding-bottom: 20px;
+}
+.field {
+  overflow: hidden;
+  padding-bottom: 5px;
+  label {
+    float: left;
+    width: 100px;
+    font-style: italic;
+    &.message {
+      clear: both;
+      float: none;
+      display: block;
+      width: auto;
+      padding-left: 100px;
+      color: #8a1f11;
+    }
+  }
+  input, textarea {
+    float: left;
+    border: 1px solid #e5e5e5;
+    padding: 3px 5px;
+    width: 265px;
+  }
+  textarea {
+    width: 510px;
+    height: 150px;
+    resize: none;
+  }
+}
+.actions {
+  overflow: hidden;
+  padding-top: 10px;
+  button {
+    float: right;
+    background: #60b000;
+    color: #fff;
+    font-weight: bold;
+  }
+}
+/*#map {
+  margin-top: 20px;
+  width: 100%;
+  height: 300px;
+}*/
+
+/* main elements */
+#header {
+  background: transparent url("bg.png") repeat 0 0;
+  .wrapper {
+    @include pie-clearfix;
+    padding: 30px 0;
+  }
+  #logo {
+    float: left;
+  }
+  nav {
+    @include pie-clearfix;
+    float: right;
+    padding: 15px 0 30px;
+    text-align: center;
+    text-transform: uppercase;
+    @extend .font-opensans-semibold;
+    a {
+      float: left;
+      margin-left: 40px;
+      text-decoration: none !important;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:hover, &.current {
+        em {
+          color: #497e04;
+        }
+        span {
+          color: #fff;
+        }
+        &#home_link .icon {
+          background-position: 50% -36px;
+        }
+        &#news_link .icon {
+          background-position: 50% -108px;
+        }
+        &#portfolio_link .icon {
+          background-position: 50% -180px;
+        }
+        &#services_link .icon {
+          background-position: 50% -252px;
+        }
+        &#contact_link .icon {
+          background-position: 50% -324px;
+        }
+      }
+      em {
+        display: block;
+        @include adjust-font-size-to(20px, 1);
+        color: #bbb;
+      }
+      span {
+        display: block;
+        @include adjust-font-size-to(12px, 0.6667);
+        color: #666;
+      }
+      .icon {
+        margin-top: 5px;
+        height: 36px;
+        background: url('menu.png') no-repeat 50% 0;
+      }
+      &#news_link .icon {
+        background-position: 50% -72px;
+      }
+      &#portfolio_link .icon {
+        background-position: 50% -144px;
+      }
+      &#services_link .icon {
+        background-position: 50% -216px;
+      }
+      &#contact_link .icon {
+        background-position: 50% -288px;
+      }
+    }
+  }
+}
+
+#content {
+  padding-top: 20px;
+  background: #305d00 url('line.png') no-repeat 50% 0;
+  .inner {
+    background: #fff;
+  }
+  .wrapper {
+    @include pie-clearfix;
+    padding: 35px 0;
+  }
+  .services_list {
+    @include pie-clearfix;
+    margin: 0 -25px 0;
+    padding-top: 20px;
+    li {
+      float: left;
+      width: 365px;
+      height: 150px;
+      padding-left: 80px;
+      margin: 0 25px;
+    }
+    h2 {
+      line-height: 1;
+      padding-bottom: 10px;
+    }
+    p {
+      font-style: italic;
+    }
+    i {
+      float: left;
+      margin-left: -80px;
+      @include adjust-font-size-to(54px);
+    }
+  }
+  .left {
+    float: left;
+    width: 625px;
+  }
+  .right {
+    width: 275px;
+    section {
+      header {
+        @extend .text-header;
+        @extend .text-border;
+        @include adjust-font-size-to(40px);
+      }
+      li {
+        overflow: hidden;
+        font-style: italic;
+        span {
+          float: left;
+          width: 60px;
+        }
+      }
+    }
+  }
+  .portfolio {
+    $image_width: 450px;
+    $image_height: 338px;
+    $overlay_width: 360px;
+    $overlay_height: 270px;
+
+    position:relative;
+    @include pie-clearfix;
+    margin: 20px -20px 0 0;
+    .portfolio_item {
+      position: relative;
+      float: left;
+      margin: 0 30px 30px 0;
+    }
+    .image_wrap {
+      position: relative;
+      display: table-cell;
+      width: $image_width;
+      height: $image_height;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      img {
+        position: relative;
+        margin: 0 auto;
+        vertical-align: middle;
+        @include box-shadow(0 0 3px #777);
+      }
+    }
+    .zoom_overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: none;
+      width: $overlay_width;
+      height: $overlay_height;
+      margin: ($overlay_height / -2) 0 0 ($overlay_width / -2);
+      background: transparent url("overlay-black.png") repeat 0 0;
+      @include opacity(0);
+      @include border-radius(10px);
+      cursor: pointer;
+
+      /*@include box-shadow(0 0 3px #777);*/
+    }
+    .text {
+      padding: 20px;
+      color: #bbb;
+      font-style: italic;
+      ul {
+        padding-left: 1em;
+        list-style: disc;
+      }
+      span {
+        @include inline-block;
+        width: 85px;
+      }
+    }
+  }
+}
+
+#bottom {
+  background: transparent url("bg2.png") repeat 0 0;
+  .wrapper {
+    @include pie-clearfix;
+    padding: 40px 0;
+  }
+  section {
+    float: left;
+    width: 220px;
+    padding-left: 30px;
+    &:first-child {
+      width: 260px;
+      padding-left: 0;
+    }
+    &.short {
+      width: 150px;
+    }
+  }
+  header {
+    padding-bottom: 5px;
+    color: #fff;
+    @extend .font-opensans-semibold;
+    @include adjust-font-size-to(26px);
+  }
+  ul {
+    @include pie-clearfix;
+    li {
+      display: block;
+      padding: 3px 0;
+      border-bottom: 1px solid #1f1f1f;
+      &:first-child {
+        border-top: 1px solid #1f1f1f;
+      }
+      em {
+        display: block;
+        padding-left: 15px;
+        margin-left: -15px;
+        background: url("icon-list.png") no-repeat 0 50%;
+      }
+      span {
+        float: left;
+        width: 65px;
+      }
+      a {
+        color: #fff;
+        @extend .link-decoration;
+      }
+    }
+    &.list {
+      padding-left: 15px;
+    }
+    &.social_list {
+      padding-left: 25px;
+      a {
+        display: block;
+        color: $base-color;
+        @extend .link-no-decoration;
+        span {
+          float: left;
+          height: 20px;
+          width: 20px;
+          margin-left: -25px;
+          padding-right: 10px;
+          background: url("icons-social.png") no-repeat 0 0;
+        }
+        &#icon_twitter span {
+          background-position: 0 -20px;
+        }
+        &#icon_github span {
+          background-position: 0 -40px;
+        }
+      }
+    }
+  }
+  form {
+    input[type="email"] {
+      padding: 5px 10px;
+      width: 200px;
+    }
+    .message {
+      padding-left: 0;
+      color: #fff;
+    }
+    button {
+      @include background(linear-gradient(#ffffff, #e5e5e5));
+      @include pie;
+      color: #000;
+    }
+  }
+}
+
+#footer {
+  text-align: center;
+  padding: 20px 0;
+}

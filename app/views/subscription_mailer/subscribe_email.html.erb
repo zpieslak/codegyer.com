@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hi there!</p>
+    <p>You were successfully subscribed to our newsletter at <%= link_to "CodeGyver", root_path %></p>
+    <p>We hope that you stay with us!</p>
+    <p>Kind regards</p>
+    <p>CodeGyver Team</p>
+    <p><%= link_to "CodeGyver", root_path %></p>
+    <p></p>
+    <p>You can always <%= link_to "unsubscribe here", unsubscribe_subscriptions_path(token: @subscription.token) %></p>
+  </body>
+</html>

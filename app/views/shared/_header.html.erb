@@ -1,0 +1,12 @@
+<header id="header">
+  <div class="wrapper">
+    <%= link_to image_tag("logo.png"), root_path, id: "logo"  %>
+    <nav>
+      <%= nav_link root_path, id: "home_link" do %><em>Home</em> <span>Welcome!</span> <span class="icon"></span><% end %>
+      <%= nav_link services_path, id: "services_link" do %><em>Services</em> <span>For you</span> <span class="icon"></span><% end %>
+      <%= nav_link portfolio_path, id: "portfolio_link" do %><em>Portfolio</em> <span>Our clients</span> <span class="icon"></span><% end %>
+      <%= nav_link contact_path, id: "contact_link" do %><em>Contact</em> <span>Our address</span> <span class="icon"></span><% end %>
+      <%= nav_link root_path, id: "news_link" do %><em>Blog</em> <span>Fresh</span> <span class="icon"></span><% end %>
+    </nav>
+  </div>
+</header>

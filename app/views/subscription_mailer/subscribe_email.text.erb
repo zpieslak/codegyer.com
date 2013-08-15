@@ -1,0 +1,10 @@
+Hi there!
+===============================================
+
+You were successfully subscribed to our newsletter at <%= root_path %>.
+We hope that you stay with us!
+your username is: <%= @user.login %>.
+
+Kind regards
+CodeGyver Team
+You can always unsubscribe here <%= unsubscribe_subscriptions_path(token: @subscription.token) %>

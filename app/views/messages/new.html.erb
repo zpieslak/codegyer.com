@@ -1,0 +1,42 @@
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+<div class="left">
+  <h1>Contact Us</h1>
+  <%= form_for @message, validate: true do |f| %>
+    <div class="legend">
+      <p>If you want the estimation or just want to say hello!</p>
+      <p>All mails are answered within 24 hours.</p>
+    </div>
+
+    <div class="field">
+      <%= f.label :name, "Your Name:" %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :email, "Your E-mail:" %>
+      <%= f.email_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :content, "Your Message:" %>
+      <%= f.text_area :content %>
+    </div>
+    <div class="actions">
+      <%= f.button "Send" %>
+    </div>
+  <% end %>
+</div>
+<div class="right">
+  <section>
+    <header>Company Info</header>
+    <ul>
+      <li><span>Country:</span> Poland</em></li>
+      <li><span>Address:</span> Serbska 4B/5, 61-696 Poznań</em></li>
+      <li><span>Phone:</span> +48 600 505 601</em></li>
+      <li><span>Skype:</span> <%= link_to "zpieslak", "skype:zpieslak?chat" %></li>
+      <li><span>Email:</span> <%= mail_to "contact@codegyver.pl", nil, encode: "hex", replace_at: "(at)" %></li>
+      <li><span>VATIN:</span> PL7811777186</em></li>
+    </ul>
+
+    <!--<div id="map"></div>-->
+  </section>
+</div>

@@ -1,0 +1,48 @@
+<div id="bottom">
+  <div class="wrapper">
+    <section>
+      <header>Why Us?</header>
+      <ul class="list">
+        <li><em>Strong technical knowledge</em></li>
+        <li><em>Experienced Ruby on Rails developers</em></li>
+        <li><em>Open Source contributions</em></li>
+      </ul>
+    </section>
+
+    <section>
+      <header>Contact</header>
+      <ul>
+        <li><span>Phone:</span> +48 600 505 601</li>
+        <li><span>Skype:</span> <%= link_to "zpieslak", "skype:zpieslak?chat" %></li>
+        <li><span>Email:</span> <%= mail_to "contact@codegyver.pl", nil, encode: "hex", replace_at: "(at)" %></li>
+      </ul>
+    </section>
+
+    <section class="short">
+      <header>Follow Us</header>
+      <ul class="social_list">
+        <li><%= link_to "https://www.facebook.com/codegyver", id: "icon_facebook", target: "_blank" do %><span class="icon"></span>Facebook<% end %></li>
+        <li><%= link_to "https://twitter.com/codegyver", id: "icon_twitter", target: "_blank" do %><span class="icon"></span>Twitter<% end %></li>
+        <li><%= link_to "https://github.com/codegyver", id: "icon_github", target: "_blank" do %><span class="icon"></span>Github<% end %></li>
+      </ul>
+    </section>
+
+    <section>
+      <header>Newsletter</header>
+      <%= form_for Subscription.new, validate: true, remote: true, html: {'data-type' => 'json'} do |f| %>
+        <div class="field">
+          <%= f.email_field :email, placeholder: "Type your email here" %>
+        </div>
+        <div class="actions">
+          <%= f.button "Subscribe" %>
+        </div>
+      <% end %>
+    </section>
+  </div>
+</div>
+
+<footer id="footer">
+  <div class="wrapper">
+    <p>Copyright © <%= Time.now.year %> CodeGyver</p>
+  </div>
+</footer>
