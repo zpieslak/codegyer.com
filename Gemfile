@@ -55,3 +55,9 @@ gem 'client_side_validations', github: 'bcardarella/client_side_validations', br
 
 # Jquery turbolinks fix
 gem 'jquery-turbolinks'
+
+# Active admin interface
+gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
+
+# Add friendly id url
+gem 'friendly_id', github: 'norman/friendly_id'

@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require general_foundicons/general_foundicons
+ *= require jquery.colorbox
  *= require screen
  */

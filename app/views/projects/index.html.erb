@@ -1,0 +1,36 @@
+<h1>Projects we made</h1>
+<p class="lead">Click on the image to see more.</p>
+<ul class="portfolio">
+<% @projects.each do |project| %>
+  <li>
+    <h2><%= link_to project.name, project %></h2>
+    <p class="image"><%= link_to image_tag("portfolio/#{project.slug}-logo.png"), project %></p>
+    <p class="text"><%= project.description %></p>
+  </li>
+<% end %>
+</ul>
+<!--  <li>
+    <h2><%= link_to "Zakochanapolska", project_path("zakochanapolska") %></h2>
+    <p class="image"><%= link_to image_tag("portfolio/logo-zakochanapolska.png"), project_path("zakochanapolska") %></p>
+    <p class="text">Dating portal targeted at people who lives abroad.</p>
+  </li>-->
+<!--  <li>
+    <h2><%= link_to "Calligraphen", project_path("calligraphen") %></h2>
+    <p class="image"><%= link_to image_tag("portfolio/logo-calligraphen.png"), project_path("calligraphen") %></p>
+    <p class="text">Corporate and e-commerce portal.</p>
+  </li>
+  <li>
+    <h2><%= link_to "Randkowa", project_path("randkowa") %></h2>
+    <p class="image"><%= link_to image_tag("portfolio/logo-randkowa.png"), project_path("randkowa") %></p>
+    <p class="text">Dating portal targeted at adults people.</p>
+  </li>
+  <li>
+    <h2><%= link_to "Ama", project_path("ama") %></h2>
+    <p class="image"><%= link_to image_tag("portfolio/logo-ama.png"), project_path("ama") %></p>
+    <p class="text">A merketing agency site with modern, mobile-friendly responsive layout.</p>
+  </li>
+  <li>
+    <h2><%= link_to "Arkop", project_path("arkop") %></h2>
+    <p class="image"><%= link_to image_tag("portfolio/logo-arkop.png"), project_path("arkop") %></p>
+    <p class="text">E-commerce portal for agricultural equipments.</p>
+  </li>-->

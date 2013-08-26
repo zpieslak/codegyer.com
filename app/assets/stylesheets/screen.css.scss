@@ -41,6 +41,11 @@ h2 {
   @extend .text-header;
   @include adjust-font-size-to(20px);
 }
+h3 {
+  @extend .text-header;
+  @include adjust-font-size-to(16px);
+  padding-bottom: .5em;
+}
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -275,62 +280,66 @@ button {
       }
     }
   }
+  .lead {
+    padding-bottom: 1em;
+  }
   .portfolio {
-    $image_width: 450px;
-    $image_height: 338px;
-    $overlay_width: 360px;
-    $overlay_height: 270px;
-
-    position:relative;
     @include pie-clearfix;
-    margin: 20px -20px 0 0;
-    .portfolio_item {
-      position: relative;
+    margin-right: -70px;
+    li {
       float: left;
-      margin: 0 30px 30px 0;
+      width: 350px;
+      padding: 0 70px 20px 0;
     }
-    .image_wrap {
-      position: relative;
-      display: table-cell;
-      width: $image_width;
-      height: $image_height;
-      text-align: center;
-      vertical-align: middle;
-      cursor: pointer;
-      img {
-        position: relative;
-        margin: 0 auto;
-        vertical-align: middle;
-        @include box-shadow(0 0 3px #777);
+    .image {
+      overflow: hidden;
+      @include box-shadow(0 0 5px #777);
+      a, img {
+        float: left;
       }
     }
-    .zoom_overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      display: none;
-      width: $overlay_width;
-      height: $overlay_height;
-      margin: ($overlay_height / -2) 0 0 ($overlay_width / -2);
-      background: transparent url("overlay-black.png") repeat 0 0;
-      @include opacity(0);
-      @include border-radius(10px);
-      cursor: pointer;
-
-      /*@include box-shadow(0 0 3px #777);*/
+    a {
+      @extend .link-no-decoration;
+      text-decoration: none;
     }
     .text {
-      padding: 20px;
-      color: #bbb;
-      font-style: italic;
-      ul {
-        padding-left: 1em;
-        list-style: disc;
+      padding: 15px 0;
+    }
+  }
+  .project {
+    .content, .images {
+      @include pie-clearfix;
+    }
+    .image, .responsibility, .features {
+      float: left;
+    }
+    .image, .responsibility {
+      width: 375px;
+    }
+    .image {
+      img {
+        @include box-shadow(0 0 3px #999);
       }
-      span {
-        @include inline-block;
-        width: 85px;
+    }
+    .content {
+      @extend .text-border;
+      padding: 1em 0 2em;
+      margin-bottom: 2em;
+    }
+    .images {
+      margin: 0 -10px;
+      a {
+        float: left;
+        padding: 10px;
       }
+      img {
+        float: left;
+        @include box-shadow(0 0 5px #777);
+      }
+    }
+    ul {
+      padding-left: 1em;
+      list-style: square;
     }
   }
 }

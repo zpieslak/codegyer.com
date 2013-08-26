@@ -1,0 +1,23 @@
+<h1><%= @project.name %></h1>
+<div class="project">
+  <div class="lead">
+    <%= raw @project.short_content %>
+  </div>
+
+  <div class="content">
+    <div class="responsibility">
+      <h3>Our responsibility</h3>
+      <%= raw @project.content %>
+    </div>
+    <div class="features">
+      <h3>Key features build</h3>
+      <%= raw @project.features %>
+    </div>
+  </div>
+
+  <div class="images">
+    <% @project.images_count.times do |index| %>
+      <%= link_to image_tag("portfolio/#{@project.slug}-#{index + 1}.jpg", width: "300px"), path_to_image("portfolio/#{@project.slug}-#{index + 1}.jpg"), rel: @project.slug, class: "gallery" %>
+    <% end %>
+  </div>
+</div>

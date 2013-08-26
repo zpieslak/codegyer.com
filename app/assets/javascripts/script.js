@@ -9,52 +9,8 @@ $(function($) {
     $(this).find("#subscription_email").val("").after("<label class=\"message\">" + data.responseJSON.message + "</label>");
   });
 
-  // portfolio
-  $('.portfolio').each( function() {
-    var $image_wrap = $(this).find('.image_wrap');
-    var width = $image_wrap.width();
-    var height = $image_wrap.height();
-
-    var $zoom_overlay = $(this).find('.zoom_overlay');
-    var width_overlay = $zoom_overlay.width();
-    var height_overlay = $zoom_overlay.height();
-
-    $image_wrap.on('click', function() {
-      var $this = $(this);
-      $this.find('img:first').animate({
-        width: width_overlay,
-        height: height_overlay
-      }, 250);
-      $this.next().animate({
-        width: width,
-        height: height,
-        marginTop: height / -2,
-        marginLeft: width / -2,
-        opacity: 1
-      }, 250, function() {
-        $(this).fadeIn();
-      });
-
-      $this.parent().siblings().find('.zoom_overlay:visible').trigger('click');
-    });
-
-    $zoom_overlay.on('click', function() {
-      $(this).find('img').hide().end().stop(true).animate({
-        width: width_overlay,
-        height: height_overlay,
-        marginTop: height_overlay / -2,
-        marginLeft: width_overlay / -2,
-        opacity: 0
-      }, 125, function() {
-        $(this).hide();
-      });
-
-      $(this).prev().find('img:first').stop(true).animate({
-        width: width,
-        height: height
-      }, 250);
-    });
-  });
+  // colorbox
+  $(".gallery").colorbox();
 
 //  // load google map
 //	if( $("#map").length > 0) {
