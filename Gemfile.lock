@@ -7,6 +7,14 @@ GIT
       compass (>= 0.12.2, < 0.14)
 
 GIT
+  remote: git://github.com/amatsuda/kaminari.git
+  revision: d5757227d7fafacefeab3d585f41c11933bd46db
+  specs:
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
+GIT
   remote: git://github.com/bcardarella/client_side_validations.git
   revision: 9461cb92e1dfb64895d590c6d435cdf48fcede45
   branch: 4-0-beta
@@ -121,9 +129,6 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.8.0)
-    kaminari (0.14.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -206,6 +211,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
+  kaminari!
   pg
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)

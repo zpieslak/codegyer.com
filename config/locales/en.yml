@@ -39,3 +39,10 @@ en:
               invalid: "Invalid email format"
             content:
               blank: "Tell us few words about your project"
+  time:
+    am: am
+    formats:
+      default: ! '%a, %d %b %Y %H:%M:%S %z'
+      long: ! '%B %d, %Y %H:%M'
+      short: ! '%d %b %H:%M'
+    pm: pm

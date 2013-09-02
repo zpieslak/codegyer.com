@@ -16,5 +16,6 @@
 //= require turbolinks
 //= require rails.validations
 //= require jquery.colorbox
+//= require jquery.cycle2.min.js
 //= require script
 //= require_tree .

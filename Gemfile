@@ -61,3 +61,6 @@ gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
 
 # Add friendly id url
 gem 'friendly_id', github: 'norman/friendly_id'
+
+# Pagination
+gem 'kaminari', github: 'amatsuda/kaminari'

@@ -224,6 +224,154 @@ button {
   }
 }
 
+.home {
+  #content {
+    padding-top: 0;
+    background: transparent;
+  }
+  #slideshow {
+    position: relative;
+    background: url('slideshow-bg.png') repeat-x 0 0;
+    ul {
+      overflow: hidden;
+      height: 423px;
+      background: url('slideshow.png') no-repeat 0 0;
+      li {
+        width: 100%;
+        height: 100%;
+      }
+      span {
+        text-align: center;
+        color: #fff;
+        @extend .font-opensans-semibold;
+        @include adjust-font-size-to(55px);
+        position: absolute;
+        top: 50%;
+        left: 300px;
+        height: 160px;
+        margin-top: -80px;
+      }
+    }
+    #slideshow_nav {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      z-index: 200;
+      overflow: hidden;
+      span {
+        float: left;
+        overflow: hidden;
+        text-indent: -99em;
+        width: 16px;
+        height: 16px;
+        margin: 0 2px;
+        background: url('slideshow-control.png') no-repeat 0 0;
+        cursor: pointer;
+        &.cycle-pager-active {
+          background-position: 0 -16px;
+        }
+      }
+    }
+  }
+  #features {
+    @include pie-clearfix;
+    margin: 0 -15px;
+    section {
+      float: left;
+      width: 210px;
+      padding: 0 15px;
+      p {
+        padding-top: 20px;
+        font-style: italic;
+      }
+    }
+    header {
+      display: table;
+      @extend .font-opensans-semibold;
+      span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      em {
+        float: left;
+        width: 50px;
+        margin-right: 10px;
+        background: #60b000;
+        @include adjust-font-size-to(34px);
+        line-height: 50px;
+        text-align: center;
+        color: #fff;
+        @include border-radius(50%);
+      }
+      span.text {
+        color: #000;
+        @include adjust-font-size-to(26px, 1);
+      }
+    }
+  }
+  #info {
+    @include pie-clearfix;
+    padding-top: 40px;
+    #intro {
+      float: left;
+      width: 680px;
+      font-style: italic;
+      .image {
+        float: left;
+        padding-right: 20px;
+      }
+      .lead {
+        color: #000;
+      }
+      p {
+        padding-bottom: 1em;
+      }
+    }
+    #testimonials {
+      float: right;
+      width: 230px;
+      h1 {
+        border: none;
+        margin-bottom: 0;
+      }
+      #slider {
+        position: relative;
+      }
+      #slider_prev, #slider_next {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 200;
+        background: #60b000 url('icon-arrow-up.png') no-repeat 50% 50%;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+      }
+      #slider_prev {
+        right: 33px;
+        background-image: url('icon-arrow-down.png');
+      }
+      blockquote {
+        padding-bottom: 21px;
+        background: url('testimonial.png') no-repeat 20px 100%;
+        p {
+          padding: 20px;
+          background: #f5f5f5;
+          font-style: italic;
+          color: #000;
+        }
+      }
+      .author {
+        strong {
+          display: block;
+          font-weight: bold;
+          color: #000;
+        }
+      }
+    }
+  }
+}
+
 #content {
   padding-top: 20px;
   background: #305d00 url('line.png') no-repeat 50% 0;
@@ -310,15 +458,17 @@ button {
     .content, .images {
       @include pie-clearfix;
     }
-    .image, .responsibility, .features {
+    .responsibility, .features {
       float: left;
     }
-    .image, .responsibility {
+    .responsibility {
       width: 375px;
     }
-    .image {
-      img {
-        @include box-shadow(0 0 3px #999);
+    .lead {
+      span {
+        float: left;
+        width: 90px;
+        font-weight: bold;
       }
     }
     .content {
@@ -341,6 +491,44 @@ button {
       padding-left: 1em;
       list-style: square;
     }
+  }
+  #posts {
+    article {
+      padding: 2em 0;
+      border-top: 1px solid #e5e5e5;
+    }
+    article:first-child {
+      padding-top: 1em;
+      border-top: none;
+    }
+    h2 {
+      @include adjust-font-size-to(24px, 1);
+      a {
+        color: #000;
+        @extend .link-no-decoration;
+      }
+    }
+    .date {
+      padding-bottom: 1em;
+    }
+  }
+}
+
+.pagination {
+  padding-top: 2em;
+  text-align: center;
+  span.current, a {
+    color: #fff;
+    @include inline-block;
+    @extend .font-opensans-semibold;
+    padding: 0 7px;
+    background: #60b000;
+    @include adjust-font-size-to(16px, 1.3333);
+    color: #fff;
+    text-decoration: none !important;
+  }
+  span.current {
+    background: #696969;
   }
 }
 

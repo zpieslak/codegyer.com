@@ -1,0 +1,16 @@
+<div id="posts">
+  <% if @posts.present? %>
+    <% @posts.each do |post| %>
+      <article>
+        <h2><%= link_to post.title, post %></h2>
+        <p class="date"><%= l post.created_at, format: :long %></p>
+        <%= raw html_truncate(post.content, 360, omission: "...") %>
+        <p><%= link_to "Read More", post %></p>
+      </article>
+    <% end %>
+
+    <%= paginate @posts %>
+  <% else %>
+    <p>There are no posts currently.</p>
+  <% end %>
+</div>

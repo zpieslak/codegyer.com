@@ -10,27 +10,37 @@ $(function($) {
   });
 
   // colorbox
-  $(".gallery").colorbox();
+  if ($(".gallery").length >= 1) {
+    $(".gallery").colorbox();
+  }
 
-//  // load google map
-//	if( $("#map").length > 0) {
-//		google_map_load();
-//	}
-//
-//	// google map
-//	function google_map_load() {
-//		var myLatlng = new google.maps.LatLng(52.4299495, 16.9562918);
-//		var myOptions = {
-//			zoom: 12,
-//			center: myLatlng,
-//			mapTypeId: google.maps.MapTypeId.ROADMAP
-//		}
-//    console.log('aaa');
-//
-//		var map = new google.maps.Map(document.getElementById("map"), myOptions);
-//		var marker = new google.maps.Marker({
-//			position: myLatlng,
-//			map: map
-//		});
-//	}
+  // slideshow
+  if ($('#slideshow').length == 1) {
+    $('#slideshow ul')
+    .before('<div id="slideshow_nav">')
+    .cycle({
+      timeout: 3000,
+      slides: 'li',
+      pager: '#slideshow_nav'
+    })
+    .on('cycle-pager-activated', function(event, opts) {
+      $(this).cycle('pause');
+    });
+  }
+
+  // testimonials
+  if ($('#slider').length == 1) {
+    $('#slider ul')
+    //.cycle('destroy')
+    .before('<div id="slider_prev" /><div id="slider_next" />')
+    .cycle({
+      timeout: 3000,
+      slides: 'li',
+      prev:   '#slider_prev',
+      next:   '#slider_next',
+    })
+    .on('cycle-next cycle-prev', function(event, opts) {
+      $(this).cycle('pause');
+    });
+  }
 });

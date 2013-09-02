@@ -10,6 +10,7 @@ Codegyver::Application.routes.draw do
 
   resources :messages, :only => [:new, :create]
   resources :projects, :only => [:index, :show]
+  resources :posts, :only => [:index, :show]
   resources :subscriptions, :only => [:create] do
     collection do
       get 'unsubscribe/:token' => "subscriptions#unsubscribe", :as => "unsubscribe"
