@@ -1,5 +1,3 @@
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-
 <div class="left">
   <h1>Contact Us</h1>
   <%= form_for @message, validate: true do |f| %>
@@ -33,10 +31,8 @@
       <li><span>Address:</span> Serbska 4B/5, 61-696 Poznań</em></li>
       <li><span>Phone:</span> +48 600 505 601</em></li>
       <li><span>Skype:</span> <%= link_to "zpieslak", "skype:zpieslak?chat" %></li>
-      <li><span>Email:</span> <%= mail_to "contact@codegyver.pl", nil, encode: "hex", replace_at: "(at)" %></li>
+      <li><span>Email:</span> <%= mail_to "contact@codegyver.net", nil, encode: "hex", replace_at: "(at)" %></li>
       <li><span>VATIN:</span> PL7811777186</em></li>
     </ul>
-
-    <!--<div id="map"></div>-->
   </section>
 </div>

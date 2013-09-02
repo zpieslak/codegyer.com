@@ -1,5 +1,5 @@
 class SubscriptionMailer < ActionMailer::Base
-  default from: "contact@codegyver.pl"
+  default from: "contact@codegyver.net"
 
   def subscribe_email(subscription)
     @subscription = subscription

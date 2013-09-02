@@ -1,5 +1,5 @@
 class MessageMailer < ActionMailer::Base
-  default to: "contact@codegyver.pl"
+  default to: "contact@codegyver.net"
 
   def new_message_email(message)
     @message = message
