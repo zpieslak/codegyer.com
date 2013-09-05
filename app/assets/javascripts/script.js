@@ -1,11 +1,10 @@
 $(function($) {
   // subscription
   $('#new_subscription').on('ajax:before', function() {
-    $(this).find("button").prop('disabled', true);
     $(this).find(".message").remove();
   });
   $('#new_subscription').on('ajax:complete', function(event, data, status) {
-    $(this).find("button").prop('disabled', false);
+    $(this).find("button").prop('disabled', false).text("Subscribe");
     $(this).find("#subscription_email").val("").after("<label class=\"message\">" + data.responseJSON.message + "</label>");
   });
 

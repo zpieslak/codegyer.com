@@ -9,7 +9,7 @@ class SubscriptionsController < ApplicationController
         format.json { render json: { message: "Thank you for your subscription" }, status: :created }
       else
         format.html { redirect_to root_path }
-        format.json { render json: { message: "There was an error." }, status: :unprocessable_entity }
+        format.json { render json: { message: "Error: #{@subscription.errors.full_messages.first}" }, status: :unprocessable_entity }
       end
     end
   end

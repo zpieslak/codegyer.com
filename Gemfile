@@ -50,8 +50,8 @@ end
 # Mailto antispam
 gem 'actionview-encoded_mail_to'
 
-# client side validations
-gem 'client_side_validations', github: 'bcardarella/client_side_validations', branch: '4-0-beta'
+# html5 validations
+gem 'html5_validators'
 
 # Jquery turbolinks fix
 gem 'jquery-turbolinks'

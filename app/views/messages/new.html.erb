@@ -1,6 +1,17 @@
 <div class="left">
   <h1>Contact Us</h1>
-  <%= form_for @message, validate: true do |f| %>
+  <%= form_for @message do |f| %>
+    <% if @message.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@message.errors.count, "error") %> prohibited this form from being sent:</h2>
+        <ul>
+        <% @message.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <div class="legend">
       <p>If you want the estimation or just want to say hello!</p>
       <p>All mails are answered within 24 hours.</p>
@@ -19,7 +30,7 @@
       <%= f.text_area :content %>
     </div>
     <div class="actions">
-      <%= f.button "Send" %>
+      <%= f.button "Send", data: { disable_with: "Please wait..." } %>
     </div>
   <% end %>
 </div>

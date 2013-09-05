@@ -27,18 +27,7 @@ en:
         subscription:
           attributes:
             email:
-              blank: "Enter your email"
-              invalid: "Invalid email format"
-              taken: "You are already subscribed"
-        message:
-          attributes:
-            name:
-              blank: "Enter your name"
-            email:
-              blank: "Enter your email"
-              invalid: "Invalid email format"
-            content:
-              blank: "Tell us few words about your project"
+              taken: "is already subscribed"
   time:
     am: am
     formats:

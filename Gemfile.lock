@@ -15,15 +15,8 @@ GIT
       activesupport (>= 3.0.0)
 
 GIT
-  remote: git://github.com/bcardarella/client_side_validations.git
-  revision: 9461cb92e1dfb64895d590c6d435cdf48fcede45
-  branch: 4-0-beta
-  specs:
-    client_side_validations (3.2.2)
-
-GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 72a9c30cef47b3f38c38039de021aaa3194c188b
+  revision: ac4918ef99cf0272eb5f744b7e3f3fc7cde5811f
   branch: rails4
   specs:
     activeadmin (0.6.0)
@@ -111,6 +104,7 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hike (1.2.3)
+    html5_validators (1.1.2)
     i18n (0.6.5)
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
@@ -136,7 +130,7 @@ GEM
     multi_json (1.7.9)
     orm_adapter (0.4.0)
     pg (0.16.0)
-    polyamorous (0.6.3)
+    polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.3)
     rack (1.5.2)
@@ -203,10 +197,10 @@ PLATFORMS
 DEPENDENCIES
   actionview-encoded_mail_to
   activeadmin!
-  client_side_validations!
   coffee-rails (~> 4.0.0)
   compass-rails!
   friendly_id!
+  html5_validators
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks

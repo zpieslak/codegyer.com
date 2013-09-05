@@ -29,12 +29,12 @@
 
     <section>
       <header>Newsletter</header>
-      <%= form_for Subscription.new, validate: true, remote: true, html: {'data-type' => 'json'} do |f| %>
+      <%= form_for Subscription.new, remote: true, html: {'data-type' => 'json'} do |f| %>
         <div class="field">
           <%= f.email_field :email, placeholder: "Type your email here" %>
         </div>
         <div class="actions">
-          <%= f.button "Subscribe" %>
+          <%= f.button "Subscribe", data: { disable_with: "Please wait..." } %>
         </div>
       <% end %>
     </section>

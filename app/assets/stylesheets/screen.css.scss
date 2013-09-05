@@ -103,7 +103,7 @@ button {
   padding-bottom: 20px;
 }
 .field {
-  overflow: hidden;
+  @include pie-clearfix;
   padding-bottom: 5px;
   label {
     float: left;
@@ -140,6 +140,25 @@ button {
     font-weight: bold;
   }
 }
+
+
+#error_explanation {
+  padding: 1em;
+  margin-bottom: 1em;
+  background: #f0f0f0;
+  h2 {
+    @include adjust-font-size-to(16px);
+    padding-bottom: .5em;
+  }
+  ul {
+    padding-left: 1em;
+  }
+  li {
+    list-style: square;
+  }
+
+}
+
 /*#map {
   margin-top: 20px;
   width: 100%;
