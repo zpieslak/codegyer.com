@@ -23,5 +23,8 @@ module Codegyver
     config.assets.precompile += %w( html5.js )
 
     #config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    # Error handling
+    config.exceptions_app = self.routes
   end
 end

@@ -16,4 +16,6 @@ Codegyver::Application.routes.draw do
       get 'unsubscribe/:token' => "subscriptions#unsubscribe", :as => "unsubscribe"
     end
   end
+
+  get "/404", "/422", "/500", :to => "pages#not_found"
 end
