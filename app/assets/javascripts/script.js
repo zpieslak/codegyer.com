@@ -30,13 +30,12 @@ $(function($) {
   // testimonials
   if ($('#slider').length == 1) {
     $('#slider ul')
-    //.cycle('destroy')
     .before('<div id="slider_prev" /><div id="slider_next" />')
     .cycle({
       timeout: 3000,
       slides: 'li',
       prev:   '#slider_prev',
-      next:   '#slider_next',
+      next:   '#slider_next'
     })
     .on('cycle-next cycle-prev', function(event, opts) {
       $(this).cycle('pause');

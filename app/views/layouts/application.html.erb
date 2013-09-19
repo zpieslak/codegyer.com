@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <!--[if lte IE 8]><%= javascript_include_tag "html5" %><![endif]-->
-  <%= csrf_meta_tags %>
+  <%#= csrf_meta_tags %>
 </head>
 <body <%= raw @home ? "class=\"home\"" : "" %>>
   <%= render "shared/header" %>

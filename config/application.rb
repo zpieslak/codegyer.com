@@ -2,6 +2,8 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+require 'actionpack/page_caching'
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
@@ -25,6 +27,10 @@ module Codegyver
     #config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     # Error handling
-    config.exceptions_app = self.routes
+    #config.exceptions_app = self.routes
+
+    # Cache
+    config.action_controller.page_cache_directory = Rails.root.to_s + "/public/cache"
+    config.action_controller.page_cache_compression = :best_compression
   end
 end

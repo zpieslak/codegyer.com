@@ -322,6 +322,7 @@ button {
         text-align: center;
         color: #fff;
         @include border-radius(50%);
+        @extend .pie-element;
       }
       span.text {
         color: #000;
@@ -460,10 +461,10 @@ button {
       padding: 0 70px 20px 0;
     }
     .image {
-      overflow: hidden;
       @include box-shadow(0 0 5px #777);
+      @extend .pie-element;
       a, img {
-        float: left;
+        display: block;
       }
     }
     a {

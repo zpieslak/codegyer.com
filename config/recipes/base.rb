@@ -22,9 +22,6 @@ namespace :deploy do
   task :install do
     run "#{sudo} apt-get -y update"
     run "#{sudo} apt-get -y install python-software-properties software-properties-common imagemagick libmagickwand-dev"
-    #run "export LANGUAGE=en_US.UTF-8"
-    #run "export LANG=en_US.UTF-8"
-    #run "export LC_ALL=en_US.UTF-8"
     run "#{sudo} locale-gen en_US.UTF-8"
     run "#{sudo} dpkg-reconfigure locales"
   end
@@ -43,6 +40,18 @@ namespace :deploy do
   task :invoke do
     run "cd '#{current_path}' && #{rake} #{ENV['task']} RAILS_ENV=#{rails_env}"
   end
+
+  desc "Copy sitemap"
+  task :copy_old_sitemap do
+    run "if [ -e #{previous_release}/public/sitemap.xml.gz ]; then cp #{previous_release}/public/sitemap* #{current_release}/public/; fi"
+  end
+  after "deploy:update_code", "deploy:copy_old_sitemap"
+
+  #desc "Cache pages"
+  #task :cache_pages do
+  #  run "cd #{latest_release} && RAILS_ENV=#{rails_env} rake pages:cache"
+  #end
+  #after "deploy", "refresh_sitemaps"
 end
 
 namespace :tools do

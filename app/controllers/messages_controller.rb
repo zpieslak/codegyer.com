@@ -1,4 +1,7 @@
 class MessagesController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: :create
+  caches_page :new, :success
+
   def new
     @message = Message.new
   end

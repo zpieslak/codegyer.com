@@ -28,7 +28,7 @@ describe PagesController do
   end
 
   describe "GET #not_found" do
-    it "responds successfully with an HTTP 200 status code" do
+    it "responds with an HTTP 200 status code" do
       get :not_found
       expect(response).to be_success
       expect(response.status).to eq(200)

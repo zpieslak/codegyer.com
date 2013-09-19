@@ -7,6 +7,7 @@ Codegyver::Application.routes.draw do
   get "services" => "pages#services"
   get "contact" => "messages#new"
   get "contact/success" => "messages#success"
+  get "posts/page/:page" => "posts#index"
 
   resources :messages, :only => [:new, :create]
   resources :projects, :only => [:index, :show]
@@ -17,5 +18,5 @@ Codegyver::Application.routes.draw do
     end
   end
 
-  get "/404", "/422", "/500", :to => "pages#not_found"
+  get "/403", "/404", "/405", "/500", :to => "pages#not_found"
 end

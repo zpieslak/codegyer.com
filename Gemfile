@@ -73,3 +73,15 @@ gem 'friendly_id', github: 'norman/friendly_id'
 
 # Pagination
 gem 'kaminari', github: 'amatsuda/kaminari'
+
+# Page caching
+gem 'actionpack-page_caching'
+
+# Hide assets on development
+gem 'quiet_assets', :group => :development
+
+# Generate sitemap
+gem 'sitemap_generator'
+
+# XML parser
+gem 'nokogiri'
