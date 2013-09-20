@@ -13,7 +13,7 @@ $base-line-height: 21px;
 $base-color: #696969;
 
 @include establish-baseline;
-@include font-face("Opensans Semibold", font-files(asset-path('opensans-semibold-webfont.woff'), asset-path('opensans-semibold-webfont.ttf'), asset-path('opensans-semibold-webfont.eot');
+@include font-face("Opensans Semibold", font-files(asset-path('opensans-semibold-webfont.woff'), asset-path('opensans-semibold-webfont.ttf')), asset-path('opensans-semibold-webfont.eot'));
 
 /* ie configuration */
 $pie-behavior: url('/PIE.htc');
