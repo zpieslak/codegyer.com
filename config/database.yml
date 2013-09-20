@@ -50,5 +50,6 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: codegyver_production
+  #database: codegyver_production
+  database: codegyver_development
   pool: 5
