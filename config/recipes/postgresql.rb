@@ -6,8 +6,16 @@ set_default(:postgresql_database) { "#{application}_#{rails_env}" }
 namespace :postgresql do
   desc "Install the latest stable release of PostgreSQL."
   task :install, roles: :db, only: {primary: true} do
+    # Install default postgresql version
+    #run "#{sudo} apt-get -y update"
+    #run "#{sudo} apt-get -y install postgresql libpq-dev libpq5"
+
+    # Install postgresql 9.2 on Ubuntu 13.04
+    run "echo 'deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main' | #{sudo} tee /etc/apt/sources.list.d/pgdg.list > /dev/null"
+    run "wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | #{sudo} apt-key add -"
     run "#{sudo} apt-get -y update"
-    run "#{sudo} apt-get -y install postgresql libpq-dev"
+    run "#{sudo} apt-get -y install libpq-dev libpq5"
+    run "#{sudo} apt-get -y -t raring install postgresql-common -t raring postgresql-9.2 postgresql-client-9.2"
   end
   after "deploy:install", "postgresql:install"
 

@@ -21,8 +21,10 @@ namespace :deploy do
   desc "Install everything onto the server"
   task :install do
     run "#{sudo} apt-get -y update"
-    run "#{sudo} apt-get -y install python-software-properties software-properties-common imagemagick libmagickwand-dev"
+    run "#{sudo} apt-get -y install python-software-properties software-properties-common dialog"
+    run "#{sudo} apt-get -y install imagemagick libmagickwand-dev libmagickcore-dev libgraphviz-dev libgvc5"
     run "#{sudo} locale-gen en_US.UTF-8"
+    run "#{sudo} update-locale LC_ALL=en_US.UTF-8"
     run "#{sudo} dpkg-reconfigure locales"
   end
 
