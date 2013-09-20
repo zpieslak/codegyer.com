@@ -33,5 +33,6 @@ set :branch, 'master'
 set :server_name, 'codegyver.net'
 
 # clean old releases
+set :shared_children, shared_children + ["public/cache"]
 set :keep_releases, 3
 after "deploy:update", "deploy:cleanup"

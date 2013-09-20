@@ -49,12 +49,6 @@ namespace :deploy do
   end
   after "deploy:update_code", "deploy:copy_old_sitemap"
 
-  desc "Link cache folder to the new release"
-  task :link_cache_folder, :roles => :app, :on_error => :continue do
-    run "ln -s #{shared_path}/cache #{latest_release}/public/cache"
-  end
-  before "deploy:symlink", "deploy:link_cache_folder"
-
   #desc "Cache pages"
   #task :cache_pages do
   #  run "cd #{latest_release} && RAILS_ENV=#{rails_env} rake pages:cache"
