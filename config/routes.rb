@@ -18,6 +18,5 @@ Codegyver::Application.routes.draw do
     end
   end
 
-  #get "/403", "/404", "/405", "/500", :to => "pages#not_found"
-  get "/404", :to => "pages#not_found"
+  get "/403", "/404", "/405", "/500", :to => "pages#not_found"
 end
