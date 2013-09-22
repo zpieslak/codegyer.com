@@ -51,7 +51,7 @@ namespace :deploy do
 
   desc "Cache pages"
   task :cache_pages do
-    run "cd #{latest_release} && rm -rf public/cache/* && RAILS_ENV=#{rails_env} rake pages:cache"
+    run "cd #{latest_release} && rm -rf public/cache/* && bundle exec rake pages:cache RAILS_ENV=#{rails_env} "
   end
   after "deploy:restart", "deploy:cache_pages"
 end
