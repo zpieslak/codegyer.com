@@ -49,11 +49,11 @@ namespace :deploy do
   end
   after "deploy:update_code", "deploy:copy_old_sitemap"
 
-  #desc "Cache pages"
-  #task :cache_pages do
-  #  run "cd #{latest_release} && RAILS_ENV=#{rails_env} rake pages:cache"
-  #end
-  #after "deploy", "refresh_sitemaps"
+  desc "Cache pages"
+  task :cache_pages do
+    run "cd #{latest_release} && rm -rf public/cache/* && RAILS_ENV=#{rails_env} rake pages:cache"
+  end
+  after "deploy:restart", "deploy:cache_pages"
 end
 
 namespace :tools do
