@@ -27,7 +27,7 @@ module Codegyver
     #config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     # Error handling
-    #config.exceptions_app = self.routes
+    config.exceptions_app = self.routes
 
     # Cache
     config.action_controller.page_cache_directory = Rails.root.to_s + "/public/cache"

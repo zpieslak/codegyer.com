@@ -7,7 +7,7 @@ namespace :pages do
 
     gz = Zlib::GzipReader.new File.open([Rails.root, 'public', 'sitemap.xml.gz'].join('/'))
     doc = Nokogiri::XML gz.read
-    links = doc.css('loc').map{ |l| URI(l.text).path } + ['/contact/success', '/403', '/404', '/405', '/500']
+    links = doc.css('loc').map{ |l| URI(l.text).path } + ['/contact/success']
 
     ## Now, we'll loop through each path we want to cache
     links.each do |path|
