@@ -7,6 +7,10 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <!--[if lte IE 8]><%= javascript_include_tag "html5" %><![endif]-->
   <%#= csrf_meta_tags %>
+  <!--<meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" />-->
+  <meta name="description" content="CodeGyver is professional Ruby on Rails (RoR) development and consulting company. We built internet startups and with excellent Ruby on Rails framework and newest technologies (HTML5, CSS3, Javascript)."/>
+  <meta name="keywords" content="Ruby on Rails development and consulting, RoR programmer, RoR team "/>
+  <meta name="robots" content="index,follow" />
 </head>
 <body <%= raw @home ? "class=\"home\"" : "" %>>
   <%= render "shared/header" %>
