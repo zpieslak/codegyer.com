@@ -16,5 +16,6 @@
 //= require turbolinks
 //= require jquery.colorbox
 //= require jquery.cycle2.min.js
+//= require google-analytics-turbolinks
 //= require script
 //= require_tree .
