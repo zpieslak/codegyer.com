@@ -3,10 +3,12 @@ class MessagesController < ApplicationController
   caches_page :new, :success
 
   def new
+    @title = "Contact our Ruby on Rails team"
     @message = Message.new
   end
 
   def create
+    @title = "Contact our Ruby on Rails team"
     @message = Message.new(message_params)
 
     if @message.save
@@ -18,6 +20,8 @@ class MessagesController < ApplicationController
   end
 
   def success
+    @title = "Thank you, we will respond to you shortly"
+    @noindex = true
   end
 
   private

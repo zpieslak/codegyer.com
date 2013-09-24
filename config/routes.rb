@@ -18,5 +18,7 @@ Codegyver::Application.routes.draw do
     end
   end
 
-  get "/403", "/404", "/405", "/500", :to => "pages#not_found"
+  %w( 404 422 500 ).each do |code|
+    get code, :to => "pages#not_found", :code => code
+  end
 end

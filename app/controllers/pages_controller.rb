@@ -6,9 +6,16 @@ class PagesController < ApplicationController
   end
 
   def services
+    @title = "Your choice for Ruby on Rails (RoR) development & consulting"
   end
 
   def not_found
-    render :status => 404
+    @title = "The page does not exist"
+    render status: status_code
   end
+
+  protected
+    def status_code
+      params[:code] || 500
+    end
 end
