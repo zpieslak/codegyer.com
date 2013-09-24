@@ -38,11 +38,6 @@ namespace :deploy do
     run "cd #{current_path}; bundle exec rake db:schema:load RAILS_ENV=#{rails_env}"
   end
 
-  desc "Invoke rake task"
-  task :invoke do
-    run "cd '#{current_path}' && #{rake} #{ENV['task']} RAILS_ENV=#{rails_env}"
-  end
-
   desc "Copy sitemap"
   task :copy_old_sitemap do
     run "if [ -e #{previous_release}/public/sitemap.xml.gz ]; then cp #{previous_release}/public/sitemap* #{current_release}/public/; fi"
@@ -63,5 +58,10 @@ namespace :tools do
       puts "#{channel[:host]}: #{data}"
       break if stream == :err
     end
+  end
+
+  desc "Invoke rake task"
+  task :invoke do
+    run "cd '#{current_path}' && #{rake} #{ENV['task']} RAILS_ENV=#{rails_env}"
   end
 end
