@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  caches_page :home, :services, :not_found
+  caches_page :home, :services
 
   def home
     @home = true
