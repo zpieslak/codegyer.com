@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sitemap_generator'
 
-SitemapGenerator::Sitemap.default_host = "http://codegyver.net"
+SitemapGenerator::Sitemap.default_host = "http://codegyver.com"
 SitemapGenerator::Sitemap.create do
   add services_path
   add projects_path

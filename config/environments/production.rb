@@ -85,6 +85,6 @@ Codegyver::Application.configure do
     :openssl_verify_mode => 'none',
     :enable_starttls_auto => false
   }
-  config.action_mailer.default_url_options = { :host => 'codegyver.net' }
-  config.action_mailer.asset_host = "http://codegyver.net"
+  config.action_mailer.default_url_options = { :host => 'codegyver.com' }
+  config.action_mailer.asset_host = "http://codegyver.com"
 end

@@ -30,7 +30,7 @@ set :repository, "git@bitbucket.org:zpieslak/codegyver.git"
 server "193.17.184.218", :app, :web, :db, :primary => true
 set :rails_env, 'production'
 set :branch, 'master'
-set :server_name, 'codegyver.net'
+set :server_name, 'codegyver.com'
 
 # clean old releases
 set :shared_children, shared_children + ["public/cache"]
