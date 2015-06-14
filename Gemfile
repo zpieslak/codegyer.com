@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.13'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.2'
 
 # Use SCSS compass classes
-gem 'compass-rails', github: 'Compass/compass-rails', branch: 'master'
+gem 'compass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -36,7 +36,7 @@ group :doc do
 end
 
 # Test framework
-gem "rspec-rails", group: [:development, :test]
+gem "rspec-rails", '~> 2.0', group: [:development, :test]
 
 # Create factories
 gem "factory_girl_rails", group: :test
@@ -51,10 +51,13 @@ gem 'faker', group: :test
 gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
+gem 'capistrano', '~> 2.0', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Flexible authentication solution for Rails with Warden
+gem 'devise'
 
 # Mailto antispam
 gem 'actionview-encoded_mail_to'
@@ -66,13 +69,13 @@ gem 'html5_validators'
 gem 'jquery-turbolinks'
 
 # Active admin interface
-gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
+gem 'activeadmin', '~> 1.0.0.pre1'
 
 # Add friendly id url
-gem 'friendly_id', github: 'norman/friendly_id'
+gem 'friendly_id'
 
 # Pagination
-gem 'kaminari', github: 'amatsuda/kaminari'
+gem 'kaminari'
 
 # Page caching
 gem 'actionpack-page_caching'
