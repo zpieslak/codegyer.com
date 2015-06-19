@@ -35,15 +35,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Test framework
-gem "rspec-rails", group: [:development, :test]
-
-# Create factories
-gem "factory_girl_rails", group: :test
-
-# Generate fake data
-gem 'faker', group: :test
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -88,3 +79,26 @@ gem 'sitemap_generator'
 
 # XML parser
 gem 'nokogiri'
+
+group :test do
+  # Test framework
+  gem "rspec-rails", group: [:development, :test]
+
+  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc
+  gem 'faker'
+
+  # Provides integration between factory_girl and rails
+  gem "factory_girl_rails", group: :test
+
+  # The instafailing RSpec progress bar formatter
+  gem 'fuubar'
+
+  # Capybara is an integration testing tool for rack based web applications
+  gem 'capybara'
+
+  # Poltergeist is a driver for Capybara that allows you to run your tests on a headless WebKit browser, provided by PhantomJS.
+  gem 'poltergeist'
+
+  # Strategies for cleaning databases
+  gem 'database_cleaner'
+end
