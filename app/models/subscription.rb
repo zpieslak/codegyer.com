@@ -1,6 +1,6 @@
 class Subscription < ActiveRecord::Base
   # Validations
-  validates :email, uniqueness: { case_sensitive: false }, presence: true, length: { maximum: 255 }, format: { :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 255 }, format: { with: Devise.email_regexp }
 
   # Callbacks
   before_create :generate_token
@@ -9,7 +9,7 @@ class Subscription < ActiveRecord::Base
     def generate_token
       self.token = loop do
         random_token = SecureRandom.urlsafe_base64(nil, false)
-        break random_token unless Subscription.where(token: random_token).exists?
+        break random_token unless self.class.where(token: random_token).exists?
       end
     end
 end

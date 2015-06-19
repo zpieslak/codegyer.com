@@ -1,62 +1,67 @@
 require 'spec_helper'
 
-describe MessagesController do
-  before(:each) { reset_email }
+RSpec.describe MessagesController do
+  before { reset_email }
 
-  describe "GET #new" do
-    it "renders the :new view" do
-      get :new
-      response.should render_template :new
+  describe 'GET #new' do
+    before { get :new }
+
+    it 'renders the :new view' do
+      expect(response).to be_success
+      expect(response).to render_template :new
+    end
+
+    it 'assigns variables' do
+      expect(assigns(:message)).to be_an_instance_of Message
+      expect(assigns(:title)).to eq 'Contact our Ruby on Rails team'
     end
   end
 
-  describe "POST create" do
-    context "with valid attributes" do
+  describe 'POST #create' do
+    context 'with valid attributes' do
       subject(:message) { attributes_for :message }
 
-      it "creates a new message" do
-        expect{
-          post :create, message: message
-        }.to change(Message, :count).by(1)
+      it 'assigns variables' do
+        post :create, message: message
+        expect(assigns(:message)).to be_an_instance_of Message
+        expect(assigns(:title)).to eq 'Contact our Ruby on Rails team'
       end
 
-      it "sends an email" do
-        post :create, message: message
-        last_email.from.should == [message[:email]]
+      it 'creates a new message' do
+        expect{ post :create, message: message }.to change(Message, :count).by(1)
       end
 
-      it "redirects to the success page" do
+      it 'sends an email' do
         post :create, message: message
-        response.should redirect_to action: :success
+        expect(last_email.from).to eq [message.fetch(:email)]
+        expect(last_email.subject).to eq 'Mail from contact form'
+      end
+
+      it 'redirects to the success page' do
+        post :create, message: message
+        expect(response).to redirect_to(action: :success)
       end
     end
 
-    context "with invalid attributes" do
+    context 'with invalid attributes' do
       subject(:message_invalid) { attributes_for(:message, :invalid) }
 
-      it "does not save the new message" do
-        expect{
-          post :create, message: message_invalid
-        }.to_not change(Message, :count)
+      it 'does not save the new message' do
+        expect{ post :create, message: message_invalid }.to_not change(Message, :count)
       end
 
-      it "re-renders the new method" do
+      it 're-renders the new method' do
         post :create, message: message_invalid
-        response.should render_template :new
+        expect(response).to render_template :new
       end
     end
   end
 
-  describe "GET #success" do
-    it "responds successfully with an HTTP 200 status code" do
+  describe 'GET #success' do
+    it 'renders template' do
       get :success
       expect(response).to be_success
-      expect(response.status).to eq(200)
-    end
-
-    it "renders the index template" do
-      get :success
-      expect(response).to render_template("success")
+      expect(response).to render_template :success
     end
   end
 end

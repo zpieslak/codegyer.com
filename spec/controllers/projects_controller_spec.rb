@@ -1,30 +1,33 @@
 require 'spec_helper'
 
-describe ProjectsController do
-  describe "GET #index" do
-    it "populates an array of projects" do
-      project = create :project
-      get :index
-      assigns(:projects).should eq([project])
+RSpec.describe ProjectsController do
+  subject(:project) { create :project }
+
+  describe 'GET #index' do
+    before { get :index }
+
+    it 'renders index view' do
+      expect(response).to be_success
+      expect(response).to render_template :index
     end
 
-    it "renders the :index view" do
-      get :index
-      response.should render_template :index
+    it 'assigns projects and title' do
+      expect(assigns(:projects)).to match_array [project]
+      expect(assigns(:title)).to eq 'Projects we made'
     end
   end
 
-  describe "GET #show" do
-    subject(:project) { create :project }
+  describe 'GET #show' do
+    before { get :show, id: project }
 
-    it "assigns the requested project to @project" do
-      get :show, id: project
-      assigns(:project).should eq(project)
+    it 'renders index view' do
+      expect(response).to be_success
+      expect(response).to render_template :show
     end
 
-    it "renders the #show view" do
-      get :show, id: project
-      response.should render_template :show
+    it 'assigns project and title' do
+      assigns(:project).should eq project
+      assigns(:title).should eq "Projects we made - #{project.name}"
     end
   end
 end

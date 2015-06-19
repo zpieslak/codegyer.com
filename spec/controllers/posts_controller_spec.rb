@@ -1,30 +1,33 @@
 require 'spec_helper'
 
-describe PostsController do
-  describe "GET #index" do
-    it "populates an array of posts" do
-      post = create :post
-      get :index
-      assigns(:posts).should eq([post])
+RSpec.describe PostsController do
+  subject(:post) { create :post }
+
+  describe 'GET #index' do
+    before { get :index }
+
+    it 'renders the :index view' do
+      expect(response).to be_success
+      expect(response).to render_template :index
     end
 
-    it "renders the :index view" do
-      get :index
-      response.should render_template :index
+    it 'populates an array of posts' do
+      expect(assigns(:posts)).to match_array([post])
+      expect(assigns(:title)).to eq 'Our Blog'
     end
   end
 
-  describe "GET #show" do
-    subject(:post) { create :post }
+  describe 'GET #show' do
+    before { get :show, id: post }
 
-    it "assigns the requested post to @post" do
-      get :show, id: post
-      assigns(:post).should eq(post)
+    it 'renders the #show view' do
+      expect(response).to be_success
+      expect(response).to render_template :show
     end
 
-    it "renders the #show view" do
-      get :show, id: post
-      response.should render_template :show
+    it 'assigns the requested post to @post' do
+      expect(assigns(:post)).to eq post
+      expect(assigns(:title)).to eq post.title
     end
   end
 end

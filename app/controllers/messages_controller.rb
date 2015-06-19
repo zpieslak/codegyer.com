@@ -3,29 +3,29 @@ class MessagesController < ApplicationController
   caches_page :new, :success
 
   def new
-    @title = "Contact our Ruby on Rails team"
+    @title = 'Contact our Ruby on Rails team'
     @message = Message.new
   end
 
   def create
-    @title = "Contact our Ruby on Rails team"
-    @message = Message.new(message_params)
+    @title = 'Contact our Ruby on Rails team'
+    @message = Message.new message_params
 
     if @message.save
       MessageMailer.new_message_email(@message).deliver
-      redirect_to action: "success"
+      redirect_to action: :success
     else
-      render action: "new"
+      render action: :new
     end
   end
 
   def success
-    @title = "Thank you, we will respond to you shortly"
+    @title = 'Thank you, we will respond to you shortly'
     @noindex = true
   end
 
   private
     def message_params
-      params.require(:message).permit(:name, :email, :content)
+      params.require(:message).permit :name, :email, :content
     end
 end

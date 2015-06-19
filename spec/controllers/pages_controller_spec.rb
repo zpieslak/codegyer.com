@@ -1,42 +1,29 @@
 require 'spec_helper'
 
-describe PagesController do
-  describe "GET #home" do
-    it "responds successfully with an HTTP 200 status code" do
-      get :home
+RSpec.describe PagesController do
+  describe 'GET #home' do
+    before { get :home }
+
+    it 'renders template' do
       expect(response).to be_success
-      expect(response.status).to eq(200)
+      expect(response).to render_template :home
     end
 
-    it "renders the home template" do
-      get :home
-      expect(response).to render_template("home")
+    it 'assigns variables' do
+      expect(assigns(:home)).to be_truthy
     end
   end
 
-  describe "GET #services" do
-    it "responds successfully with an HTTP 200 status code" do
-      get :services
+  describe 'GET #services' do
+    before { get :services }
+
+    it 'renders template' do
       expect(response).to be_success
-      expect(response.status).to eq(200)
+      expect(response).to render_template :services
     end
 
-    it "renders the services template" do
-      get :services
-      expect(response).to render_template("services")
+    it 'assigns variables' do
+      expect(assigns(:title)).to eq 'Your choice for Ruby on Rails (RoR) development & consulting'
     end
   end
-
-  #describe "GET #not_found" do
-  #  it "responds with an HTTP 200 status code" do
-  #    get '/404'
-  #    expect(response).to be_success
-  #    expect(response.status).to eq(400)
-  #  end
-  #
-  #  it "renders the not_found template" do
-  #    get :not_found
-  #    expect(response).to render_template("not_found")
-  #  end
-  #end
 end

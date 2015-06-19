@@ -6,11 +6,11 @@ class PagesController < ApplicationController
   end
 
   def services
-    @title = "Your choice for Ruby on Rails (RoR) development & consulting"
+    @title = 'Your choice for Ruby on Rails (RoR) development & consulting'
   end
 
   def not_found
-    @title = "The page does not exist"
+    @title = 'The page does not exist'
     render status: status_code
   end
 

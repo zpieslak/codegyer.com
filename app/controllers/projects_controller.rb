@@ -2,8 +2,8 @@ class ProjectsController < ApplicationController
   caches_page :index, :show
 
   def index
-    @title = "Projects we made"
-    @projects = Project.all.order("date_at DESC")
+    @title = 'Projects we made'
+    @projects = Project.order(date_at: :desc)
   end
 
   def show
