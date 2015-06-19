@@ -36,7 +36,7 @@ group :doc do
 end
 
 # Test framework
-gem "rspec-rails", '~> 2.0', group: [:development, :test]
+gem "rspec-rails", group: [:development, :test]
 
 # Create factories
 gem "factory_girl_rails", group: :test

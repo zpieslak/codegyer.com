@@ -1,4 +1,4 @@
-module ControllerMacros
+module ControllerHelper
   def last_email
     ActionMailer::Base.deliveries.last
   end

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe ProjectsController do
   subject(:project) { create :project }
@@ -26,8 +26,8 @@ RSpec.describe ProjectsController do
     end
 
     it 'assigns project and title' do
-      assigns(:project).should eq project
-      assigns(:title).should eq "Projects we made - #{project.name}"
+      expect(assigns(:project)).to eq project
+      expect(assigns(:title)).to eq "Projects we made - #{project.name}"
     end
   end
 end
