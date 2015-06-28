@@ -34,5 +34,5 @@ Codegyver::Application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: '127.0.0.1', port: 4000 }
 end

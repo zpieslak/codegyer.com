@@ -41,9 +41,6 @@ end
 # Use unicorn as the app server
 gem 'unicorn'
 
-# Use Capistrano for deployment
-gem 'capistrano', '~> 2.0', group: :development
-
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
@@ -71,24 +68,32 @@ gem 'kaminari'
 # Page caching
 gem 'actionpack-page_caching'
 
-# Hide assets on development
-gem 'quiet_assets', :group => :development
-
 # Generate sitemap
 gem 'sitemap_generator'
 
 # XML parser
 gem 'nokogiri'
 
-group :test do
-  # Test framework
-  gem "rspec-rails", group: [:development, :test]
+group :development do
+  # Use Capistrano for deployment
+  gem 'capistrano', '~> 2.0', group: :development
 
-  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc
+  # Hide assets on development
+  gem 'quiet_assets'
+end
+
+group :development, :test do
+  # Test framework
+  gem 'rspec-rails'
+end
+
+group :test do
+  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data
+  # names, addresses, phone numbers, etc
   gem 'faker'
 
   # Provides integration between factory_girl and rails
-  gem "factory_girl_rails", group: :test
+  gem 'factory_girl_rails'
 
   # The instafailing RSpec progress bar formatter
   gem 'fuubar'
@@ -96,9 +101,20 @@ group :test do
   # Capybara is an integration testing tool for rack based web applications
   gem 'capybara'
 
-  # Poltergeist is a driver for Capybara that allows you to run your tests on a headless WebKit browser, provided by PhantomJS.
+  # Poltergeist is a driver for Capybara that allows you to run your tests on a
+  # headless WebKit browser, provided by PhantomJS.
   gem 'poltergeist'
+
+  # Test your ActionMailer and Mailer messages in Capybara
+  gem 'capybara-email'
 
   # Strategies for cleaning databases
   gem 'database_cleaner'
+
+  # Automatic Ruby code style checking tool. Aims to enforce
+  # the community-driven Ruby Style Guide.
+  gem 'rubocop', require: false
+
+  # Temporary lock parser gem
+  gem "parser", "~> 2.2.0"
 end

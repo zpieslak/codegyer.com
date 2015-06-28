@@ -7,6 +7,12 @@ FactoryGirl.define do
     short_content Faker::Lorem.sentence(10)
     content Faker::Lorem.sentence(10)
     features Faker::Lorem.sentence(10)
+
+    trait :randkowa do
+      name 'Randkowa'
+      slug 'randkowa'
+      images_count 6
+    end
   end
 
   factory :message do
