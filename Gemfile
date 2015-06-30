@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.13'
+gem 'rails', '4.1.12'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -76,10 +76,13 @@ gem 'nokogiri'
 
 group :development do
   # Use Capistrano for deployment
-  gem 'capistrano', '~> 2.0', group: :development
+  gem 'capistrano', '~> 2.0'
 
   # Hide assets on development
   gem 'quiet_assets'
+
+  # Rails application preloader
+  gem 'spring'
 end
 
 group :development, :test do
@@ -117,4 +120,7 @@ group :test do
 
   # Temporary lock parser gem
   gem "parser", "~> 2.2.0"
+
+  # rspec command for spring
+  gem "spring-commands-rspec"
 end
