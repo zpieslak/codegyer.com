@@ -15,7 +15,8 @@ class PagesController < ApplicationController
   end
 
   protected
-    def status_code
-      params[:code] || 500
-    end
+
+  def status_code
+    params[:code] || 500
+  end
 end

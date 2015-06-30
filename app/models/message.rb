@@ -10,7 +10,8 @@ class Message < ActiveRecord::Base
   before_validation :strip_html, if: -> { content.present? }
 
   private
-    def strip_html
-      self.content = strip_tags(content).strip
-    end
+
+  def strip_html
+    self.content = strip_tags(content).strip
+  end
 end

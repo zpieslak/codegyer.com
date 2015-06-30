@@ -17,3 +17,6 @@
 
 # Ignore cache files
 public/cache/*
+
+# Ignore rspec run files
+spec/examples.txt

@@ -5,9 +5,9 @@ FactoryGirl.define do
     content Faker::Lorem.sentence(10)
 
     trait :invalid do
-      name ""
-      email ""
-      content ""
+      name ''
+      email ''
+      content ''
     end
   end
 end

@@ -80,9 +80,9 @@ Rails.application.configure do
   # Action mailer settings
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.smtp_settings = {
-    :openssl_verify_mode => 'none',
-    :enable_starttls_auto => false
+    openssl_verify_mode: 'none',
+    enable_starttls_auto: false
   }
-  config.action_mailer.default_url_options = { :host => 'codegyver.com' }
-  config.action_mailer.asset_host = "http://codegyver.com"
+  config.action_mailer.default_url_options = { host: 'codegyver.com' }
+  config.action_mailer.asset_host = 'http://codegyver.com'
 end

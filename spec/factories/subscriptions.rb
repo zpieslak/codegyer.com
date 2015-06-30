@@ -3,7 +3,7 @@ FactoryGirl.define do
     email Faker::Internet.email
 
     trait :invalid do
-      email ""
+      email ''
     end
   end
 end

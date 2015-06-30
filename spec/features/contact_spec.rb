@@ -1,13 +1,13 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.feature "Contact page", :js do
+RSpec.feature 'Contact page', :js do
   background do
     clear_emails
     visit '/contact'
     expect(page).to have_css '#contact_link.current'
   end
 
-  scenario "user see page content" do
+  scenario 'user see page content' do
     # User see content
     expect(page).to have_content 'Contact Us'
     expect(page).to have_content 'Company Info'
@@ -45,4 +45,3 @@ RSpec.feature "Contact page", :js do
     expect(current_email).to have_content 'My message'
   end
 end
-

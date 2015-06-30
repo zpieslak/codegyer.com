@@ -4,15 +4,11 @@ class SubscriptionsController < ApplicationController
   def create
     @subscription = Subscription.new subscription_params
 
-    respond_to do |format|
-      if @subscription.save
-        SubscriptionMailer.subscribe_email(@subscription).deliver_now
-        format.json { render status: :created, json: { message: 'Thank you for your subscription' } }
-      else
-        format.json { render status: :unprocessable_entity, json: { message: "Error: #{@subscription.errors.full_messages.first}" } }
-      end
-
-      format.html { redirect_to root_path }
+    if @subscription.save
+      SubscriptionMailer.subscribe_email(@subscription).deliver_now
+      render status: :created, json: { message: 'Thank you for your subscription' }
+    else
+      render status: :unprocessable_entity, json: { message: "Error: #{@subscription.errors.full_messages.first}" }
     end
   end
 
@@ -22,7 +18,8 @@ class SubscriptionsController < ApplicationController
   end
 
   private
-    def subscription_params
-      params.require(:subscription).permit :email
-    end
+
+  def subscription_params
+    params.require(:subscription).permit :email
+  end
 end

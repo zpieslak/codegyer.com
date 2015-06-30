@@ -1,4 +1,4 @@
-require "database_cleaner"
+require 'database_cleaner'
 
 RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

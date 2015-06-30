@@ -1,13 +1,13 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.feature "Home page", :js do
+RSpec.feature 'Home page', :js do
   background do
     clear_emails
     visit '/'
     expect(page).to have_css '#home_link.current'
   end
 
-  scenario "user see menu links" do
+  scenario 'user see menu links' do
     # Test main slider
     expect(page).to have_css '.cycle-pager-active'
     first('#slideshow_nav span:not(.cycle-pager-active)').click

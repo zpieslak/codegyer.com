@@ -1,0 +1,21 @@
+Metrics/LineLength:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+    Enabled: false
+
+Style/Documentation:
+    Enabled: false
+
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'config.rb'
+    - 'bin/**/*'
+    - 'doc/**/*'
+    - 'db/**/*'
+    - 'public/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'

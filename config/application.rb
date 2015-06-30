@@ -26,7 +26,7 @@ module Codegyver
     config.active_record.raise_in_transactional_callbacks = true
 
     # Error handling
-    config.exceptions_app = self.routes
+    config.exceptions_app = routes
 
     # Cache
     config.action_controller.page_cache_directory = "#{Rails.root}/public/cache"

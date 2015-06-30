@@ -1,6 +1,6 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.feature "Portfolio page", :js do
+RSpec.feature 'Portfolio page', :js do
   given!(:project) { create :project, :randkowa }
 
   background do
@@ -8,7 +8,7 @@ RSpec.feature "Portfolio page", :js do
     expect(page).to have_css '#portfolio_link.current'
   end
 
-  scenario "user see page content" do
+  scenario 'user see page content' do
     # See content
     expect(page).to have_content 'Projects we made'
     expect(page).to have_content project.description

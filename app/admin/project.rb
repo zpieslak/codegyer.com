@@ -16,7 +16,7 @@ ActiveAdmin.register Project do
 
   controller do
     def permitted_params
-      params.permit(:project => [:name, :description, :short_content, :content, :features, :images_count, :date_at])
+      params.permit(project: [:name, :description, :short_content, :content, :features, :images_count, :date_at])
     end
   end
 end
