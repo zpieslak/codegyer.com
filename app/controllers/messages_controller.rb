@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
     @message = Message.new message_params
 
     if @message.save
-      MessageMailer.new_message_email(@message).deliver
+      MessageMailer.new_message_email(@message).deliver_now
       redirect_to action: :success
     else
       render action: :new

@@ -1,7 +1,9 @@
-Codegyver::Application.routes.draw do
-
+Rails.application.routes.draw do
+  # Devise routes
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  # Root
   root 'pages#home'
 
   get "services" => "pages#services"
@@ -18,7 +20,7 @@ Codegyver::Application.routes.draw do
     end
   end
 
-  %w( 404 422 500 ).each do |code|
+  %w(404 422 500).each do |code|
     get code, :to => "pages#not_found", :code => code
   end
 end

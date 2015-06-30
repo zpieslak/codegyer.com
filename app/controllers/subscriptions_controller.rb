@@ -6,7 +6,7 @@ class SubscriptionsController < ApplicationController
 
     respond_to do |format|
       if @subscription.save
-        SubscriptionMailer.subscribe_email(@subscription).deliver
+        SubscriptionMailer.subscribe_email(@subscription).deliver_now
         format.json { render status: :created, json: { message: 'Thank you for your subscription' } }
       else
         format.json { render status: :unprocessable_entity, json: { message: "Error: #{@subscription.errors.full_messages.first}" } }

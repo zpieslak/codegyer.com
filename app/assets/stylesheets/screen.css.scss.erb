@@ -5,7 +5,6 @@
 
 @import "compass";
 @import "compass/reset";
-@import "compass/css3/pie";
 
 /* main configuration */
 $base-font-size: 13px;
@@ -15,13 +14,6 @@ $base-color: #696969;
 @include establish-baseline;
 @include font-face("Opensans Semibold", font-files('<%= asset_path('opensans-semibold-webfont.woff') %>', '<%= asset_path('opensans-semibold-webfont.ttf') %>'), '<%= asset_path('opensans-semibold-webfont.eot') %>');
 @include font-face("Opensans Semibold", font-files('<%= asset_path('opensans-semibold-webfont.woff') %>', '<%= asset_path('opensans-semibold-webfont.ttf') %>'), '<%= asset_path('opensans-semibold-webfont.eot') %>');
-
-/* ie configuration */
-$pie-behavior: url(<%= asset_path('PIE.htc') %>);
-$pie-base-class: pie-element;
-.pie-element {
-  @include pie-element;
-}
 
 /* main elements */
 body {
@@ -323,7 +315,6 @@ button {
         text-align: center;
         color: #fff;
         @include border-radius(50%);
-        @extend .pie-element;
       }
       span.text {
         color: #000;
@@ -424,8 +415,8 @@ button {
     }
     i {
       float: left;
-      margin-left: -80px;
-      @include adjust-font-size-to(54px);
+      margin-left: -75px;
+      @include adjust-font-size-to(56px);
     }
   }
   .left {
@@ -463,7 +454,6 @@ button {
     }
     .image {
       @include box-shadow(0 0 5px #777);
-      @extend .pie-element;
       a, img {
         display: block;
       }
@@ -640,7 +630,6 @@ button {
     }
     button {
       @include background(linear-gradient(#ffffff, #e5e5e5));
-      @include pie;
       color: #000;
     }
   }
