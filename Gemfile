@@ -74,6 +74,9 @@ gem 'sitemap_generator'
 # XML parser
 gem 'nokogiri'
 
+# Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
+gem 'figaro'
+
 group :development do
   # Use Capistrano for deployment
   gem 'capistrano-rails'
@@ -86,7 +89,6 @@ group :development do
 
   # A debugging tool for your Ruby on Rails applications.
   gem 'web-console', '~> 2.0'
-
 end
 
 group :development, :test do
@@ -98,8 +100,7 @@ group :development, :test do
 end
 
 group :test do
-  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data
-  # names, addresses, phone numbers, etc
+  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data names, addresses, phone numbers, etc
   gem 'faker'
 
   # Provides integration between factory_girl and rails
@@ -111,8 +112,7 @@ group :test do
   # Capybara is an integration testing tool for rack based web applications
   gem 'capybara'
 
-  # Poltergeist is a driver for Capybara that allows you to run your tests on a
-  # headless WebKit browser, provided by PhantomJS.
+  # Poltergeist is a driver for Capybara that allows you to run your tests on a headless WebKit browser, provided by PhantomJS.
   gem 'poltergeist'
 
   # Test your ActionMailer and Mailer messages in Capybara
@@ -121,13 +121,12 @@ group :test do
   # Strategies for cleaning databases
   gem 'database_cleaner'
 
-  # Automatic Ruby code style checking tool. Aims to enforce
-  # the community-driven Ruby Style Guide.
+  # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
   gem 'rubocop', require: false
 
   # Temporary lock parser gem
-  gem "parser", "~> 2.2.0"
+  gem 'parser', '~> 2.2.0'
 
   # rspec command for spring
-  gem "spring-commands-rspec"
+  gem 'spring-commands-rspec'
 end
