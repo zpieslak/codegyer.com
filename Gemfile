@@ -76,7 +76,7 @@ gem 'nokogiri'
 
 group :development do
   # Use Capistrano for deployment
-  gem 'capistrano', '~> 2.0'
+  gem 'capistrano-rails'
 
   # Hide assets on development
   gem 'quiet_assets'

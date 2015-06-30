@@ -1,38 +1,35 @@
-# bundler
-require "bundler/capistrano"
+# config valid only for current version of Capistrano
+lock '3.4.0'
 
-load "config/recipes/base"
-load "config/recipes/nginx"
-load "config/recipes/unicorn"
-load "config/recipes/postgresql"
-load "config/recipes/nodejs"
-#load "config/recipes/memcached"
-load "config/recipes/rbenv"
-load "config/recipes/check"
+set :application, 'codegyver'
+set :repo_url, 'git@bitbucket.org:zpieslak/codegyver.git'
 
-# application
-set :application, "codegyver"
+# Default branch is :master
+# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-# server
-default_run_options[:pty] = true
-default_run_options[:shell] = '/bin/bash --login'
-ssh_options[:forward_agent] = true
-set :deploy_via, :remote_cache
-set :user, "deploy"
-set :use_sudo, false
+# Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/#{user}/apps/#{application}"
 
-# repository
-set :scm, :git
-set :repository, "git@bitbucket.org:zpieslak/codegyver.git"
+# Default value for :scm is :git
+# set :scm, :git
 
-# server
-server "193.17.184.218", :app, :web, :db, :primary => true
-set :rails_env, 'production'
-set :branch, 'master'
-set :server_name, 'codegyver.com'
+# Default value for :format is :pretty
+# set :format, :pretty
 
-# clean old releases
-set :shared_children, shared_children + ["public/cache"]
-set :keep_releases, 3
-after "deploy:update", "deploy:cleanup"
+# Default value for :log_level is :debug
+# set :log_level, :debug
+
+# Default value for :pty is false
+# set :pty, true
+
+# Default value for :linked_files is []
+set :linked_files, fetch(:linked_files, []).push('config/database.yml')
+
+# Default value for linked_dirs is []
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp', 'public/assets')
+
+# Default value for default_env is {}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+# Default value for keep_releases is 5
+# set :keep_releases, 5
