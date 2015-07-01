@@ -11,7 +11,7 @@ ActiveAdmin.register Project do
       f.input :images_count
       f.input :date_at, as: :datepicker
     end
-    f.buttons
+    f.actions
   end
 
   controller do

@@ -4,7 +4,7 @@ ActiveAdmin.register Post do
       f.input :title
       f.input :content
     end
-    f.buttons
+    f.actions
   end
 
   controller do
