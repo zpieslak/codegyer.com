@@ -1,8 +1,9 @@
 class MessageMailer < ActionMailer::Base
-  default to: 'contact@codegyver.com'
+  default from: "CodeGyver <#{ENV.fetch('smtp_settings_user_name')}>"
+  default to: 'CodeGyver <contact@codegyver.com>'
 
   def new_message_email(message)
     @message = message
-    mail(from: message.email, subject: 'Mail from contact form')
+    mail(reply_to: message.email, subject: 'Mail from contact form')
   end
 end

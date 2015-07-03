@@ -81,6 +81,9 @@ group :development do
   # Use Capistrano for deployment
   gem 'capistrano-rails'
 
+  # rbenv integration for Capistrano
+  gem 'capistrano-rbenv'
+
   # Hide assets on development
   gem 'quiet_assets'
 

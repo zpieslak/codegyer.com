@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server '193.17.184.218', user: 'deploy', roles: %w(app db web)
+server '193.17.184.218', user: fetch(:user), roles: %w(app db web)
 
 # role-based syntax
 # ==================

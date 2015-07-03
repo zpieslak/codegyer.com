@@ -20,3 +20,6 @@ public/cache/*
 
 # Ignore rspec run files
 spec/examples.txt
+
+# Ignore application configuration
+/config/application.yml

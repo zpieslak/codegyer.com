@@ -52,3 +52,5 @@ production:
   encoding: unicode
   database: codegyver_production
   pool: 5
+  username: ENV.fetch('database_username')
+  password: ENV.fetch('database_password')

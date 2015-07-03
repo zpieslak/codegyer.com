@@ -1,5 +1,6 @@
 class SubscriptionMailer < ActionMailer::Base
-  default from: 'CodeGyver Team <contact@codegyver.com>'
+  default from: "CodeGyver <#{ENV.fetch('smtp_settings_user_name')}>"
+  default reply_to: 'CodeGyver <contact@codegyver.com>'
 
   def subscribe_email(subscription)
     @subscription = subscription

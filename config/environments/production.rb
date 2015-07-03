@@ -78,10 +78,16 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Action mailer settings
-  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    openssl_verify_mode: 'none',
-    enable_starttls_auto: false
+    address: 'smtp.zoho.com',
+    domain: 'codegyver.com',
+    port: 465,
+    user_name: ENV.fetch('smtp_settings_user_name'),
+    password: ENV.fetch('smtp_settings_password'),
+    authentication: 'plain',
+    tls: true,
+    enable_starttls_auto: true
   }
   config.action_mailer.default_url_options = { host: 'codegyver.com' }
   config.action_mailer.asset_host = 'http://codegyver.com'
