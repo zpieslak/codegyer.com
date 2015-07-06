@@ -4,6 +4,6 @@ class MessageMailer < ActionMailer::Base
 
   def new_message_email(message)
     @message = message
-    mail(reply_to: message.email, subject: 'Mail from contact form')
+    mail(reply_to: "#{message.name} <#{message.email}>", subject: 'Mail from contact form')
   end
 end

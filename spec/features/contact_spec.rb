@@ -40,7 +40,8 @@ RSpec.feature 'Contact page', :js do
 
     # Test email
     open_email 'contact@codegyver.com'
-    expect(current_email.header('From')).to eq 'test@example.com'
+    expect(current_email.header('From')).to eq 'CodeGyver <noreply@codegyver.com>'
+    expect(current_email.header('Reply-To')).to eq 'John Smith <test@example.com>'
     expect(current_email).to have_content 'John Smith'
     expect(current_email).to have_content 'My message'
   end
