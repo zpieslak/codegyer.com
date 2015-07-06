@@ -51,6 +51,7 @@ production:
   adapter: postgresql
   encoding: unicode
   database: codegyver_production
+  username: <%= ENV.fetch('database_username') %>
+  password: <%= ENV.fetch('database_password') %>
+  host: localhost
   pool: 5
-  username: ENV.fetch('database_username')
-  password: ENV.fetch('database_password')
