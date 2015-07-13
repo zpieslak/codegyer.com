@@ -2,3 +2,11 @@ check process unicorn_codegyver with pidfile /home/deploy/apps/codegyver/current
   start program "/usr/local/bin/unicorn_codegyver start"
   stop program "/usr/local/bin/unicorn_codegyver stop"
   if 5 restarts within 5 cycles then timeout
+
+check process unicorn_codegyver_worker_0 with pidfile /home/deploy/apps/codegyver/current/tmp/pids/unicorn.0.pid
+  if memory usage > 16% for 1 cycles then "/usr/local/bin/unicorn_codegyver kill_worker 0"
+  if cpu is greater than 50% for 2 cycles then "/usr/local/bin/unicorn_codegyver kill_worker 0"
+
+check process unicorn_codegyver_worker_1 with pidfile /home/deploy/apps/codegyver/current/tmp/pids/unicorn.1.pid
+  if memory usage > 16% for 1 cycles then "/usr/local/bin/unicorn_codegyver kill_worker 1"
+  if cpu is greater than 50% for 2 cycles then "/usr/local/bin/unicorn_codegyver kill_worker 1"

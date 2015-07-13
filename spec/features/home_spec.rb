@@ -79,7 +79,7 @@ RSpec.feature 'Home page', :js do
     end
 
     # Test other links
-    expect(page).to have_link 'zpiesla'
+    expect(page).to have_link 'zpieslak'
     expect(page).to have_link 'contact(at)codegyver.com'
     expect(page).to have_link 'Github'
   end

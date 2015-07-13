@@ -77,6 +77,9 @@ gem 'nokogiri'
 # Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
 gem 'figaro'
 
+# Clean ruby syntax for writing and deploying cron jobs.
+gem 'whenever', require: false
+
 group :development do
   # Use Capistrano for deployment
   gem 'capistrano-rails'

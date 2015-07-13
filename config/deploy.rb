@@ -2,8 +2,8 @@
 lock '3.4.0'
 
 set :application, 'codegyver'
-set :user, 'deploy'
-set :repo_url, 'git@bitbucket.org:zpieslak/codegyver.git'
+set :user, ENV.fetch('server_user')
+set :repo_url, ENV.fetch('server_repo_url')
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -41,3 +41,6 @@ set :rbenv_ruby, File.read('.ruby-version').strip
 # Bundler options
 set :bundle_path, -> { nil }
 set :bundle_flags, nil
+
+# Whenever
+set :whenever_identifier, -> { "#{fetch(:application)}_#{fetch(:stage)}" }
