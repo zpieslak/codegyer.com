@@ -1,5 +1,5 @@
-upstream unicorn {
-  server unix:/tmp/unicorn.codegyver.sock fail_timeout=0;
+upstream unicorn_codegyver {
+  server unix:/home/deploy/apps/codegyver/tmp/unicorn_codegyver.sock fail_timeout=0;
 }
 
 server {
@@ -18,15 +18,14 @@ server {
     add_header Cache-Control public;
   }
 
-#  try_files $uri/index.html $uri @unicorn;
-try_files $uri /cache/$uri/index.html /cache/$uri.html /cache/$uri @unicorn;
+  try_files $uri /cache/$uri/index.html /cache/$uri.html /cache/$uri @unicorn_codegyver;
 
-  location @unicorn {
+  location @unicorn_codegyver {
     proxy_set_header Host $http_host;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_redirect off;
-    proxy_pass http://unicorn;
+    proxy_pass http://unicorn_codegyver;
   }
 
   client_max_body_size 8M;
