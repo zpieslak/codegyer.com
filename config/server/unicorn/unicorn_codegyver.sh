@@ -15,11 +15,11 @@ set -e
 # Feel free to change any of the following variables for your app:
 TIMEOUT=${TIMEOUT-60}
 APP_ROOT=/home/deploy/apps/codegyver/current
-PID_PATH=$PID_PATH/tmp/pids
-PID=$PId_PATH/unicorn.pid
+PID_PATH=$APP_ROOT/tmp/pids
+PID=$PID_PATH/unicorn.pid
 ENVIRONMENT=production
 AS_USER=deploy
-CMD="cd $APP_ROOT; bundle exec unicorn -E $ENVIRONMENT -D -c $APP_ROOT/config/unicorn.rb"
+CMD="cd $APP_ROOT; bundle exec unicorn -E $ENVIRONMENT -D -c $APP_ROOT/config/server/unicorn/config.rb"
 action="$1"
 set -u
 

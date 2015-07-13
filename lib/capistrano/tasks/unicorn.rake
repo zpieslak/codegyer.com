@@ -28,4 +28,4 @@ namespace :unicorn do
   end
 end
 
-after 'deploy:published', 'unicorn:upgrade'
+# after 'deploy:published', 'unicorn:upgrade'

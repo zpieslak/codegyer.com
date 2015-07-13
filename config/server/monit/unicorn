@@ -1,0 +1,4 @@
+check process unicorn_codegyver with pidfile /home/deploy/apps/codegyver/current/tmp/pids/unicorn.pid
+  start program "/usr/local/bin/unicorn_codegyver start"
+  stop program "/usr/local/bin/unicorn_codegyver stop"
+  if 5 restarts within 5 cycles then timeout

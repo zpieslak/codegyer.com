@@ -1,5 +1,5 @@
 upstream unicorn_codegyver {
-  server unix:/home/deploy/apps/codegyver/tmp/unicorn_codegyver.sock fail_timeout=0;
+  server unix:/home/deploy/apps/codegyver/current/tmp/sockets/unicorn.sock fail_timeout=0;
 }
 
 server {

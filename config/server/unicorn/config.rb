@@ -1,6 +1,6 @@
 # User settings
 work_dir = '/home/deploy/apps/codegyver/current/'
-socket_path = "#{work_dir}tmp/sockets/unicorn_codegyver.sock"
+socket_path = "#{work_dir}tmp/sockets/unicorn.sock"
 pid_path = "#{work_dir}tmp/pids/unicorn.pid"
 stderr_path = "#{work_dir}log/unicorn.stderr.log"
 stdout_path = "#{work_dir}log/unicorn.stdout.log"
@@ -15,11 +15,7 @@ stderr_path stderr_path
 stdout_path stdout_path
 preload_app true
 
-before_exec do |_server|
-  ENV['BUNDLE_GEMFILE'] = "#{work_dir}Gemfile"
-end
-
-before_fork do |server, _worker|
+before_fork do |server, worker|
   defined?(ActiveRecord::Base) && ActiveRecord::Base.connection.disconnect!
 
   # Quit the old unicorn process
@@ -33,7 +29,7 @@ before_fork do |server, _worker|
   end
 end
 
-after_fork do |_server, _worker|
+after_fork do |server, worker|
   defined?(ActiveRecord::Base) && ActiveRecord::Base.establish_connection
 
   # Save worker pids
