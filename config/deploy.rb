@@ -2,8 +2,8 @@
 lock '3.4.0'
 
 set :application, 'codegyver'
-set :user, ENV.fetch('server_user')
-set :repo_url, ENV.fetch('server_repo_url')
+set :user, ENV.fetch('SERVER_USER')
+set :repo_url, ENV.fetch('SERVER_REPO_URL')
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

@@ -1,5 +1,5 @@
 class MessageMailer < ActionMailer::Base
-  default from: "CodeGyver <#{ENV.fetch('smtp_settings_user_name')}>"
+  default from: "CodeGyver <#{ENV.fetch('SMTP_SETTINGS_USER_NAME')}>"
   default to: 'CodeGyver <contact@codegyver.com>'
 
   def new_message_email(message)

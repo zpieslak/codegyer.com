@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server ENV.fetch('server_ip'), user: fetch(:user), roles: %w(app db web)
+server ENV.fetch('SERVER_IP'), user: fetch(:user), roles: %w(app db web)
 
 # role-based syntax
 # ==================

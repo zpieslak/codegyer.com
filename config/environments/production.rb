@@ -83,8 +83,8 @@ Rails.application.configure do
     address: 'smtp.zoho.com',
     domain: 'codegyver.com',
     port: 465,
-    user_name: ENV.fetch('smtp_settings_user_name'),
-    password: ENV.fetch('smtp_settings_password'),
+    user_name: ENV.fetch('SMTP_SETTINGS_USER_NAME'),
+    password: ENV.fetch('SMTP_SETTINGS_PASSWORD'),
     authentication: 'plain',
     tls: true,
     enable_starttls_auto: true

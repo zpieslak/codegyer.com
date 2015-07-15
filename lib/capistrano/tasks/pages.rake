@@ -12,4 +12,4 @@ namespace :pages do
   end
 end
 
-after 'deploy:finished', 'deploy:cache_all'
+after 'deploy:finished', 'pages:cache_all'
