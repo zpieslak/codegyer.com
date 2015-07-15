@@ -32,7 +32,7 @@ $(function($) {
     $('#slider ul')
     .before('<div id="slider_prev" /><div id="slider_next" />')
     .cycle({
-      timeout: 3000,
+      timeout: 6000,
       slides: 'li',
       prev:   '#slider_prev',
       next:   '#slider_next'
