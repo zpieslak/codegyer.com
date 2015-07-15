@@ -6,6 +6,7 @@ ActiveAdmin.register_page 'Dashboard' do
       span class: 'blank_slate' do
         span I18n.t('active_admin.dashboard_welcome.welcome')
         small I18n.t('active_admin.dashboard_welcome.call_to_action')
+        small "Running version: #{app_version}"
       end
     end
 
