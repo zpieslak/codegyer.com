@@ -1,7 +1,7 @@
 namespace :unicorn do
   desc 'Reload application'
   task :upgrade do
-    on roles(:app), in: :sequence, wait: 20 do
+    on roles(:app), in: :sequence, wait: 5 do
       execute :sudo, 'unicorn_codegyver', 'upgrade'
     end
   end
