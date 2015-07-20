@@ -1,11 +1,12 @@
 == README
 
-This is code which builds: http://codegyver.com
+My personal / company site: http://codegyver.com
 
 The application uses following components:
-* Ruby 2.0
-* Ruby on Rails 4.0
-* PostgreSQL 9.2
-* RSpec 2.14
+* Ruby
+* Ruby on Rails
+* PostgreSQL
+* RSpec
 * SASS (Compass)
 * Turbolinks
+* Capistrano
