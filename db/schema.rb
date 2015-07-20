@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902085240) do
+ActiveRecord::Schema.define(version: 20150720110653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "admin_users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at"
@@ -30,42 +30,53 @@ ActiveRecord::Schema.define(version: 20130902085240) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "messages", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "email",      limit: 255
+    t.string   "name"
+    t.string   "email"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title",      limit: 255
+    t.string   "title"
     t.text     "content"
-    t.string   "slug",       limit: 255
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string  "name",          limit: 255
-    t.string  "slug",          limit: 255
+    t.string  "name"
+    t.string  "slug"
     t.text    "description"
     t.text    "short_content"
     t.text    "content"
     t.text    "features"
-    t.integer "images_count",              default: 0, null: false
+    t.integer "images_count",  default: 0, null: false
     t.date    "date_at"
   end
 
   add_index "projects", ["slug"], name: "index_projects_on_slug", using: :btree
 
   create_table "subscriptions", force: :cascade do |t|
-    t.string   "email",      limit: 255
-    t.string   "token",      limit: 255
+    t.string   "email"
+    t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "subscriptions", ["email"], name: "index_subscriptions_on_email", using: :btree
   add_index "subscriptions", ["token"], name: "index_subscriptions_on_token", using: :btree
+
+  create_table "testimonials", force: :cascade do |t|
+    t.text     "content"
+    t.string   "author"
+    t.string   "company"
+    t.integer  "position",   default: 0, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "testimonials", ["position"], name: "index_testimonials_on_position", using: :btree
 
 end

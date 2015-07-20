@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @home = true
+    @testimonials = Testimonial.default_order
   end
 
   def services

@@ -49,24 +49,14 @@
     </header>
     <div id="slider">
       <ul>
-        <li>
-          <blockquote>
-            <p>CodeGyver has consistently delivered outstanding work. They are highly knowledgeable, proactively communicative, and utterly reliable.</p>
-          </blockquote>
-          <p class="author"><strong>Brenton Cheng</strong> NBCUniversal</p>
-        </li>
-        <li>
-          <blockquote>
-            <p>CodeGyver took our dating portal from a prototype to a real business. I highly recommend them.</p>
-          </blockquote>
-          <p class="author"><strong>Michał Ziomka</strong> SecondWay Sp z o.o.</p>
-        </li>
-        <li>
-          <blockquote>
-            <p>Excellent turnaround time and expert development. We'll surely work again.</p>
-          </blockquote>
-          <p class="author"><strong>Marcin Nikonczuk</strong> SoInteractive S.A.</p>
-        </li>
+        <% @testimonials.each do |testimonial| %>
+          <li>
+            <blockquote>
+              <p><%= testimonial.content %></p>
+            </blockquote>
+            <p class="author"><strong><%= testimonial.author %></strong> <%= testimonial.company %></p>
+          </li>
+        <% end %>
       </ul>
     </div>
   </section>

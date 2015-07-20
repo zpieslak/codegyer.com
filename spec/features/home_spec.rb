@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature 'Home page', :js do
+  given!(:testimonial_1) { create :testimonial }
+  given!(:testimonial_2) { create :testimonial, position: 1 }
+
   background do
     clear_emails
     visit '/'
@@ -14,11 +17,16 @@ RSpec.feature 'Home page', :js do
     expect(page).to have_css '#slideshow .cycle-paused'
 
     # Test testimonials
+    expect(page).to have_css '#testimonials blockquote', text: testimonial_1.content
+    expect(page).to have_css '#testimonials .author strong', text: testimonial_1.author
+    expect(page).to have_css '#testimonials .author', text: testimonial_1.company
     expect(page).to have_css '.cycle-slide-active'
     find('#slider_next').click
     expect(page).to have_css '#slider .cycle-paused'
+    expect(page).to have_css '#testimonials blockquote', text: testimonial_2.content
     find('#slider_prev').click
     expect(page).to have_css '#slider .cycle-paused'
+    expect(page).to have_css '#testimonials blockquote', text: testimonial_1.content
 
     # Test menu
     click_link 'Services'
