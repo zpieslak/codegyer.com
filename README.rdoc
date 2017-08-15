@@ -1,5 +1,7 @@
 == README
 
+Code moved to Jekyll: https://github.com/CodeGyver/codegyver.github.io
+
 My personal / company site: http://codegyver.com
 
 The application uses following components:
